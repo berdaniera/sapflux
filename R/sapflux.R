@@ -9,4 +9,3 @@
 #' @docType package
 #' @name sapflux
 NULL
-#> NULL
