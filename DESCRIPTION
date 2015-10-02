@@ -10,3 +10,5 @@ Description: Calculate tree sap flux density from thermal dissipation probes
 License: CC0
 Imports:
     mvtnorm
+URL: http://github.com/berdaniera/sapflux
+BugReports: http://github.com/berdaniera/sapflux/issues
