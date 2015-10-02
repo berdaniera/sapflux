@@ -12,3 +12,4 @@ Imports:
     mvtnorm
 URL: http://github.com/berdaniera/sapflux
 BugReports: http://github.com/berdaniera/sapflux/issues
+LazyData: true

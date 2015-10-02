@@ -39,7 +39,7 @@ qtot <- function(v, a = 0, b,
                  treeRadius, sapRadius = NULL){
   
   # check if any sapwood depth estimates are NA
-  if(!is.null(sapRadius)&any(is.na(sapRadius))) sapRadius[which(is.na(sapRadius))] <- treeRadius[which(is.na(sapRadius))]
+  if(!is.null(sapRadius)) if(any(is.na(sapRadius))) sapRadius[which(is.na(sapRadius))] <- treeRadius[which(is.na(sapRadius))]
   
   wt <- which(rownames(postmu)==woodType)
   if(uncertainty){
