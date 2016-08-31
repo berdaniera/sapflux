@@ -28,6 +28,15 @@ egpred <- qtot(egtree, 0, 0.2, "Ring-porous", FALSE, 1, 0.255, NULL)
 plot(egpred,type="l",ylab="Sap flow (g/s)")
 ```
 
+The function for generating an estimate of whole-tree water use rates is `qtot`:
+
+```R
+qtot(v, a=0, b, woodType=c("Tracheid","Diffuse-porous","Ring-porous"), uncertainty=FALSE, nboot=5000, treeRadius, sapRadius=NULL)
+```
+
+Here `v` is the observed sap flux density observation, `a` and `b` are the start and end depths of the sap flux probe (in `m`), `woodType` is the xylem anatomy, `uncertainty` specifies whether to generate uncertainty estimates, `nboot` is the number of bootstrapped estimates for the uncertainty estimates, `treeRadius` is the radius of the tree (in `m`) and `sapRadius` is an optional depth of the sapwood (in `m`).
+
+
 Uncertainty
 -----------
 
@@ -35,9 +44,9 @@ Predictions with uncertainty are based on parameter uncertainty from the model f
 
 ```R
 egpred_uncertainty <- qtot(egtree, 0, 0.2, "Ring-porous", TRUE, 1000, 0.255, NULL)
-egpred_interval <- apply(egpred_uncertainty,1,quantile,c(0.025,0.5,0.975)
-plot(egpred_interval[3,],type="l",col="darkgrey",ylab="Sap flow (g/s)")
-lines(egpred_interval[1,],col="darkgrey")
+egpred_interval <- apply(egpred_uncertainty, 1, quantile, c(0.025,0.5,0.975))
+plot(egpred_interval[3,], type="l", col="darkgrey", ylab="Sap flow (g/s)")
+lines(egpred_interval[1,], col="darkgrey")
 lines(egpred_interval[2,])
 ```
 
